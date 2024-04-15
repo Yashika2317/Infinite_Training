@@ -1,0 +1,14 @@
+C:\Users\yashikav\Desktop\Mini PROJECT\DatabaseFirst\DatabaseFirst\bin\Debug\DatabaseFirst.exe.config
+C:\Users\yashikav\Desktop\Mini PROJECT\DatabaseFirst\DatabaseFirst\bin\Debug\DatabaseFirst.exe
+C:\Users\yashikav\Desktop\Mini PROJECT\DatabaseFirst\DatabaseFirst\bin\Debug\DatabaseFirst.pdb
+C:\Users\yashikav\Desktop\Mini PROJECT\DatabaseFirst\DatabaseFirst\bin\Debug\EntityFramework.dll
+C:\Users\yashikav\Desktop\Mini PROJECT\DatabaseFirst\DatabaseFirst\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\yashikav\Desktop\Mini PROJECT\DatabaseFirst\DatabaseFirst\bin\Debug\EntityFramework.xml
+C:\Users\yashikav\Desktop\Mini PROJECT\DatabaseFirst\DatabaseFirst\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\yashikav\Desktop\Mini PROJECT\DatabaseFirst\DatabaseFirst\obj\Debug\DatabaseFirst.csproj.AssemblyReference.cache
+C:\Users\yashikav\Desktop\Mini PROJECT\DatabaseFirst\DatabaseFirst\obj\Debug\DatabaseFirst.csproj.CoreCompileInputs.cache
+C:\Users\yashikav\Desktop\Mini PROJECT\DatabaseFirst\DatabaseFirst\obj\Debug\DatabaseFirst.csproj.CopyComplete
+C:\Users\yashikav\Desktop\Mini PROJECT\DatabaseFirst\DatabaseFirst\obj\Debug\DatabaseFirst.exe
+C:\Users\yashikav\Desktop\Mini PROJECT\DatabaseFirst\DatabaseFirst\obj\Debug\DatabaseFirst.pdb
+C:\Users\yashikav\Desktop\Mini PROJECT\DatabaseFirst\DatabaseFirst\bin\Debug\ConsoleTables.dll
+C:\Users\yashikav\Desktop\Mini PROJECT\DatabaseFirst\DatabaseFirst\bin\Debug\ConsoleTables.pdb

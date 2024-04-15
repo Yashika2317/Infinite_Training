@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TrainDBModelStoreContainer" CdmEntityContainer="TrainDBEntities">
+    <FunctionImportMapping FunctionImportName="AddTrain" FunctionName="TrainDBModel.Store.AddTrain" />
+    <EntitySetMapping Name="Booking_Data">
+      <EntityTypeMapping TypeName="TrainDBModel.Booking_Data">
+        <MappingFragment StoreEntitySet="Booking_Data">
+          <ScalarProperty Name="Total_Fare" ColumnName="Total_Fare" />
+          <ScalarProperty Name="No_of_Tickets" ColumnName="No_of_Tickets" />
+          <ScalarProperty Name="Booking_Date" ColumnName="Booking_Date" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="Train_no" ColumnName="Train_no" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Book_ID" ColumnName="Book_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cancellation_Data">
+      <EntityTypeMapping TypeName="TrainDBModel.Cancellation_Data">
+        <MappingFragment StoreEntitySet="Cancellation_Data">
+          <ScalarProperty Name="Refund_Amount" ColumnName="Refund_Amount" />
+          <ScalarProperty Name="No_tickets_Canc" ColumnName="No_tickets_Canc" />
+          <ScalarProperty Name="Canc_Date" ColumnName="Canc_Date" />
+          <ScalarProperty Name="Train_no" ColumnName="Train_no" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Book_ID" ColumnName="Book_ID" />
+          <ScalarProperty Name="Canc_ID" ColumnName="Canc_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="BookTrainTicket" FunctionName="TrainDBModel.Store.BookTrainTicket" />
+    <FunctionImportMapping FunctionImportName="CancelTrainTicket" FunctionName="TrainDBModel.Store.CancelTrainTicket">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TrainDBModel.CancelTrainTicket_Result">
+          <ScalarProperty Name="Train_no" ColumnName="Train_no" />
+          <ScalarProperty Name="Source_loc" ColumnName="Source_loc" />
+          <ScalarProperty Name="Destination" ColumnName="Destination" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeleteTrain" FunctionName="TrainDBModel.Store.DeleteTrain" />
+    <FunctionImportMapping FunctionImportName="ModifyTrain" FunctionName="TrainDBModel.Store.ModifyTrain" />
+    <EntitySetMapping Name="Trains">
+      <EntityTypeMapping TypeName="TrainDBModel.Train">
+        <MappingFragment StoreEntitySet="Trains">
+          <ScalarProperty Name="Train_Status" ColumnName="Train_Status" />
+          <ScalarProperty Name="Fare" ColumnName="Fare" />
+          <ScalarProperty Name="Date_of_Travel" ColumnName="Date_of_Travel" />
+          <ScalarProperty Name="Destination" ColumnName="Destination" />
+          <ScalarProperty Name="Source_loc" ColumnName="Source_loc" />
+          <ScalarProperty Name="Available_Berths" ColumnName="Available_Berths" />
+          <ScalarProperty Name="Total_Berths" ColumnName="Total_Berths" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="Train_name" ColumnName="Train_name" />
+          <ScalarProperty Name="Train_no" ColumnName="Train_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
