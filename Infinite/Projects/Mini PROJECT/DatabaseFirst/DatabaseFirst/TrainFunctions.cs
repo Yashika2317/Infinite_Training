@@ -27,8 +27,8 @@ namespace DatabaseFirst
                 new SqlParameter("@Source", train.Source_loc),
                 new SqlParameter("@Destination", train.Destination),
                 new SqlParameter("@DateOfTravel", train.Date_of_Travel),
-                new SqlParameter("@Fare", train.Fare), // Add parameter for Fare
-                new SqlParameter("@TrainStatus", train.Train_Status)); // Add parameter for TrainStatus
+                new SqlParameter("@Fare", train.Fare), 
+                new SqlParameter("@TrainStatus", train.Train_Status)); 
         }
 
 
