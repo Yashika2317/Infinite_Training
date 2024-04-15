@@ -12,3 +12,17 @@ C:\Users\yashikav\Desktop\Mini PROJECT\DatabaseFirst\DatabaseFirst\obj\Debug\Dat
 C:\Users\yashikav\Desktop\Mini PROJECT\DatabaseFirst\DatabaseFirst\obj\Debug\DatabaseFirst.pdb
 C:\Users\yashikav\Desktop\Mini PROJECT\DatabaseFirst\DatabaseFirst\bin\Debug\ConsoleTables.dll
 C:\Users\yashikav\Desktop\Mini PROJECT\DatabaseFirst\DatabaseFirst\bin\Debug\ConsoleTables.pdb
+C:\Infinite\Yashika V\Infinite\Projects\Mini PROJECT\DatabaseFirst\DatabaseFirst\bin\Debug\DatabaseFirst.exe.config
+C:\Infinite\Yashika V\Infinite\Projects\Mini PROJECT\DatabaseFirst\DatabaseFirst\bin\Debug\DatabaseFirst.exe
+C:\Infinite\Yashika V\Infinite\Projects\Mini PROJECT\DatabaseFirst\DatabaseFirst\bin\Debug\DatabaseFirst.pdb
+C:\Infinite\Yashika V\Infinite\Projects\Mini PROJECT\DatabaseFirst\DatabaseFirst\bin\Debug\ConsoleTables.dll
+C:\Infinite\Yashika V\Infinite\Projects\Mini PROJECT\DatabaseFirst\DatabaseFirst\bin\Debug\EntityFramework.dll
+C:\Infinite\Yashika V\Infinite\Projects\Mini PROJECT\DatabaseFirst\DatabaseFirst\bin\Debug\EntityFramework.SqlServer.dll
+C:\Infinite\Yashika V\Infinite\Projects\Mini PROJECT\DatabaseFirst\DatabaseFirst\bin\Debug\ConsoleTables.pdb
+C:\Infinite\Yashika V\Infinite\Projects\Mini PROJECT\DatabaseFirst\DatabaseFirst\bin\Debug\EntityFramework.xml
+C:\Infinite\Yashika V\Infinite\Projects\Mini PROJECT\DatabaseFirst\DatabaseFirst\bin\Debug\EntityFramework.SqlServer.xml
+C:\Infinite\Yashika V\Infinite\Projects\Mini PROJECT\DatabaseFirst\DatabaseFirst\obj\Debug\DatabaseFirst.csproj.AssemblyReference.cache
+C:\Infinite\Yashika V\Infinite\Projects\Mini PROJECT\DatabaseFirst\DatabaseFirst\obj\Debug\DatabaseFirst.csproj.CoreCompileInputs.cache
+C:\Infinite\Yashika V\Infinite\Projects\Mini PROJECT\DatabaseFirst\DatabaseFirst\obj\Debug\DatabaseFirst.csproj.CopyComplete
+C:\Infinite\Yashika V\Infinite\Projects\Mini PROJECT\DatabaseFirst\DatabaseFirst\obj\Debug\DatabaseFirst.exe
+C:\Infinite\Yashika V\Infinite\Projects\Mini PROJECT\DatabaseFirst\DatabaseFirst\obj\Debug\DatabaseFirst.pdb

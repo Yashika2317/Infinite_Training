@@ -158,7 +158,7 @@ namespace DatabaseFirst
 
         static void ModifyTrain(TrainFunctions trainFunctions)
         {
-            Console.WriteLine("\nEnter Train Numner to modify:");
+            Console.WriteLine("\nEnter Train Number to modify:");
             int trainNo = int.Parse(Console.ReadLine());
 
             Console.WriteLine("\nFor the Following Data Please (Enter value or leave blank) to keep current value ");

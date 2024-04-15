@@ -133,35 +133,49 @@ CREATE PROCEDURE BookTrainTicket
     @NumTickets INT
 AS
 BEGIN
-    DECLARE @AvailableBerths INT;
-    DECLARE @Fare INT;
+    DECLARE @TrainStatus NVARCHAR(10);
 
-    SELECT @AvailableBerths = Available_Berths,
-           @Fare = Fare
+    SELECT @TrainStatus = Train_Status
     FROM Trains
-    WHERE Train_no = @TrainNo AND Class = @Class;
+    WHERE Train_no = @TrainNo;
 
-    IF @AvailableBerths >= @NumTickets
+    IF @TrainStatus = 'Active'
     BEGIN
-        DECLARE @TotalFare INT;
-        SET @TotalFare = @NumTickets * @Fare;
+        DECLARE @AvailableBerths INT;
+        DECLARE @Fare INT;
 
-        UPDATE Trains
-        SET Available_Berths = Available_Berths - @NumTickets
+        SELECT @AvailableBerths = Available_Berths,
+               @Fare = Fare
+        FROM Trains
         WHERE Train_no = @TrainNo AND Class = @Class;
 
-        INSERT INTO Booking_Data (UserName, Train_no, Class, Booking_Date, No_of_Tickets, Total_Fare)
-        VALUES (@UserName, @TrainNo, @Class, GETDATE(), @NumTickets, @TotalFare);
+        IF @AvailableBerths >= @NumTickets
+        BEGIN
+            DECLARE @TotalFare INT;
+            SET @TotalFare = @NumTickets * @Fare;
 
-        SELECT Train_no, Source_loc, Destination, @TotalFare AS Total_Fare
-        FROM Trains
-        WHERE Train_no = @TrainNo;
+            UPDATE Trains
+            SET Available_Berths = Available_Berths - @NumTickets
+            WHERE Train_no = @TrainNo AND Class = @Class;
+
+            INSERT INTO Booking_Data (UserName, Train_no, Class, Booking_Date, No_of_Tickets, Total_Fare)
+            VALUES (@UserName, @TrainNo, @Class, GETDATE(), @NumTickets, @TotalFare);
+
+            SELECT Train_no, Source_loc, Destination, @TotalFare AS Total_Fare
+            FROM Trains
+            WHERE Train_no = @TrainNo;
+        END
+        ELSE
+        BEGIN
+            PRINT 'Sorry, Tickets not Available.';
+        END
     END
     ELSE
     BEGIN
-        PRINT 'Sorry, Tickets not Available.';
+        PRINT 'Sorry, Train is not in Active status.';
     END
 END
+
 
 ---------------------------------------------------------------------------------------------------------------
 
@@ -182,37 +196,29 @@ BEGIN
 
     IF @BookingID IS NOT NULL
     BEGIN
-        DECLARE @Counter INT;
-        SET @Counter = 0;
+        DECLARE @CancDate DATE = GETDATE();
 
-        WHILE @Counter < @NumTicketsToCancel
-        BEGIN
-            DECLARE @CancDate DATE = GETDATE();
-            SELECT @RefundAmount = Total_Fare - (SELECT Fare * @NumTicketsToCancel FROM Trains WHERE Train_no = @TrainNo AND Class = (SELECT Class FROM Booking_Data WHERE Book_ID = @BookingID))
-            FROM Booking_Data
-            WHERE Book_ID = @BookingID;
+        SELECT @RefundAmount = (Fare * @NumTicketsToCancel)
+        FROM Trains
+        WHERE Train_no = @TrainNo AND Class = (SELECT Class FROM Booking_Data WHERE Book_ID = @BookingID);
 
-            INSERT INTO Cancellation_Data (Book_ID, UserName, Train_no, Canc_Date, No_tickets_Canc, Refund_Amount)
-            VALUES (@BookingID, @UserName, @TrainNo, @CancDate, @NumTicketsToCancel, @RefundAmount);
-
-            UPDATE Trains
-            SET Available_Berths = Available_Berths + @NumTicketsToCancel
-            WHERE Train_no = @TrainNo;
-
-            SET @Counter = @Counter + 1;
-        END
-
-        SELECT Train_no, Source_loc, Destination, @RefundAmount AS Refund_Amount
+        INSERT INTO Cancellation_Data (Book_ID, UserName, Train_no, Canc_Date, No_tickets_Canc, Refund_Amount)
+        VALUES (@BookingID, @UserName, @TrainNo, @CancDate, @NumTicketsToCancel, @RefundAmount);
+        
+        UPDATE Trains
+        SET Available_Berths = Available_Berths + @NumTicketsToCancel
+        WHERE Train_no = @TrainNo;
+		 SELECT Train_no, Source_loc, Destination, @RefundAmount AS Refund_Amount
         FROM Trains
         WHERE Train_no = @TrainNo;
-
-        PRINT 'Your Ticket(s) have been cancelled successfully.';
+		 PRINT 'Your Ticket(s) have been cancelled successfully.';
     END
     ELSE
     BEGIN
         PRINT 'Ticket not Found!';
     END
 END
+
 
 ---------------------------------------------------------------------------------------------------
 
@@ -221,5 +227,6 @@ END
 select*from Trains
 select*from Booking_Data
 select*from Cancellation_Data
+
 
 ----------------------------------------------The END-----------------------------------------------
