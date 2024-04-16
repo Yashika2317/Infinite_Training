@@ -4,7 +4,6 @@ use TrainDB;
 -------------------------Creating Tables-------------------------------------
 --Trains Table
 
-
 CREATE TABLE Trains (
     Train_no INT,
     Train_name VARCHAR(50),
@@ -207,7 +206,7 @@ BEGIN
         
         UPDATE Trains
         SET Available_Berths = Available_Berths + @NumTicketsToCancel
-        WHERE Train_no = @TrainNo;
+        WHERE Train_no = @TrainNo and Class = (SELECT Class FROM Booking_Data WHERE Book_ID = @BookingID) ;
 		 SELECT Train_no, Source_loc, Destination, @RefundAmount AS Refund_Amount
         FROM Trains
         WHERE Train_no = @TrainNo;
@@ -220,6 +219,7 @@ BEGIN
 END
 
 
+
 ---------------------------------------------------------------------------------------------------
 
 --Select commands
@@ -227,6 +227,5 @@ END
 select*from Trains
 select*from Booking_Data
 select*from Cancellation_Data
-
 
 ----------------------------------------------The END-----------------------------------------------

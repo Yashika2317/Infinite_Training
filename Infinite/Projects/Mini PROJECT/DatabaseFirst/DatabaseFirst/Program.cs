@@ -19,7 +19,7 @@ namespace DatabaseFirst
             string adminPassword = "2317";
 
             DisplayMainScreen();
-            
+
             string choice = Console.ReadLine();
 
             if (choice == "1")
@@ -35,7 +35,7 @@ namespace DatabaseFirst
                 if (password == adminPassword)
                 {
                     isLoggedIn = true;
-                    AdminMenu(trainFunctions); 
+                    AdminMenu(trainFunctions);
                 }
                 else
                 {
@@ -65,7 +65,7 @@ namespace DatabaseFirst
         }
 
 
-        static void AdminMenu(TrainFunctions trainFunctions) 
+        static void AdminMenu(TrainFunctions trainFunctions)
         {
             bool exitMenu = false;
 
@@ -100,7 +100,7 @@ namespace DatabaseFirst
                         Console.WriteLine("\nInvalid choice.\n");
                         break;
                 }
-            } 
+            }
 
             Console.ReadLine();
         }
@@ -132,10 +132,10 @@ namespace DatabaseFirst
             DateTime dateOfTravel = DateTime.Parse(Console.ReadLine());
 
             Console.WriteLine("\nEnter Fare:");
-            int fare = int.Parse(Console.ReadLine()); 
+            int fare = int.Parse(Console.ReadLine());
 
             Console.WriteLine("\nEnter Train Status (Active/Not Active):");
-            string trainStatus = Console.ReadLine(); 
+            string trainStatus = Console.ReadLine();
 
             Train train = new Train
             {
@@ -162,7 +162,7 @@ namespace DatabaseFirst
             int trainNo = int.Parse(Console.ReadLine());
 
             Console.WriteLine("\nFor the Following Data Please (Enter value or leave blank) to keep current value ");
-           
+
             Console.WriteLine("\n\nEnter New Train Name:");
             string trainNameInput = Console.ReadLine();
             string trainName = string.IsNullOrWhiteSpace(trainNameInput) ? null : trainNameInput;
@@ -247,7 +247,7 @@ namespace DatabaseFirst
                         CancelTrainTicket(trainFunctions);
                         break;
                     case "d":
-                        exitMenu = true; 
+                        exitMenu = true;
                         break;
                     default:
                         Console.WriteLine("\nInvalid choice.\n");
@@ -269,7 +269,7 @@ namespace DatabaseFirst
             }
 
             table.Write();
-        
+
 
             Console.WriteLine("\nPress any key to return to the user menu...\n");
             Console.ReadKey();
@@ -291,7 +291,7 @@ namespace DatabaseFirst
             int numTickets = int.Parse(Console.ReadLine());
 
             Console.WriteLine("\nDo you want to proceed to payment? (Y/N)");
-            char proceedToPayment = char.ToUpper(Console.ReadKey().KeyChar);           
+            char proceedToPayment = char.ToUpper(Console.ReadKey().KeyChar);
 
             var ticketDetails = trainFunctions.BookTicket(userName, trainNo, trainClass, numTickets);
 
@@ -326,7 +326,7 @@ namespace DatabaseFirst
             int trainNo = int.Parse(Console.ReadLine());
 
             Console.WriteLine("\nEnter Number of Tickets to cancel:");
-            int numTicketsToCancel = int.Parse(Console.ReadLine()); 
+            int numTicketsToCancel = int.Parse(Console.ReadLine());
 
             var canceledTicketDetails = trainFunctions.CancelTicket(userName, trainNo, numTicketsToCancel);
 
@@ -343,7 +343,7 @@ namespace DatabaseFirst
             }
             else
             {
-                Console.WriteLine("\nTicket not found or cancellation failed.\n" +"");
+                Console.WriteLine("\nTicket not found or cancellation failed.\n" + "");
             }
 
             Console.ReadLine();
