@@ -16,6 +16,11 @@ namespace DatabaseFirst
         {
             dbContext = context;
         }
+
+        public List<Train> GetTrains()
+        {
+            return dbContext.Trains.ToList();
+        }
         public void AddTrain(Train train)
         {
             dbContext.Database.ExecuteSqlCommand("EXEC AddTrain @TrainNo, @TrainName, @Class, @TotalBerths, @AvailableBerths, @Source, @Destination, @DateOfTravel, @Fare, @TrainStatus",

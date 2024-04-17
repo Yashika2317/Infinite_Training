@@ -69,6 +69,9 @@ namespace DatabaseFirst
         {
             bool exitMenu = false;
 
+            // Display initial trains table
+            DisplayTrains(trainFunctions);
+
             while (!exitMenu)
             {
                 Console.WriteLine("╔═══════════════════════════════════╗");
@@ -105,6 +108,21 @@ namespace DatabaseFirst
             Console.ReadLine();
         }
 
+        static void DisplayTrains(TrainFunctions trainFunctions)
+        {
+            var allTrains = trainFunctions.GetAllTrains();
+            var table = new ConsoleTable("Train Number", "Train Name", "Class", "Total Berths", "Available Berths", "Source", "Destination", "Date of Travel", "Fare", "Train Status");
+
+            foreach (var train in allTrains)
+            {
+                table.AddRow(train.Train_no, train.Train_name, train.Class, train.Total_Berths, train.Available_Berths, train.Source_loc, train.Destination, train.Date_of_Travel, train.Fare, train.Train_Status);
+            }
+
+            Console.WriteLine("\nTrains Table:");
+            table.Write();
+        }
+
+
         static void AddTrain(TrainFunctions trainFunctions)
         {
             Console.WriteLine("Enter Train No:");
@@ -128,8 +146,17 @@ namespace DatabaseFirst
             Console.WriteLine("\nEnter Destination:");
             string destination = Console.ReadLine();
 
-            Console.WriteLine("\nEnter Date of Travel (YYYY-MM-DD):");
-            DateTime dateOfTravel = DateTime.Parse(Console.ReadLine());
+            DateTime dateOfTravel;
+            do
+            {
+                Console.WriteLine("\nEnter Date of Travel (YYYY-MM-DD):");
+                dateOfTravel = DateTime.Parse(Console.ReadLine());
+
+                if (dateOfTravel < DateTime.Today)
+                {
+                    Console.WriteLine("Date is invalid. Please enter a future date for travel.");
+                }
+            } while (dateOfTravel < DateTime.Today);
 
             Console.WriteLine("\nEnter Fare:");
             int fare = int.Parse(Console.ReadLine());
@@ -155,6 +182,7 @@ namespace DatabaseFirst
             Console.WriteLine("\nTrain added successfully!\n");
             Console.ReadLine();
         }
+
 
         static void ModifyTrain(TrainFunctions trainFunctions)
         {
@@ -276,6 +304,8 @@ namespace DatabaseFirst
 
         }
 
+
+
         static void BookTrainTicket(TrainFunctions trainFunctions)
         {
             Console.WriteLine("\nEnter your name:");
@@ -310,7 +340,7 @@ namespace DatabaseFirst
             }
             else
             {
-                Console.WriteLine("\nSorry, not enough tickets available or Train in NOT ACTIVE Status\nPlease check the display and Book Tickets for ACTIVE trains only.\n");
+                Console.WriteLine("\nSorry, Train in NOT ACTIVE Status\nPlease check the display and Book Tickets for ACTIVE trains only.\n");
             }
 
             Console.ReadLine();
