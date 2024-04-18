@@ -1,10 +1,37 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation Sum</title>
 </head>
 <body>
-    <h1>Validation Successful! </h1>
+    <h1>Validation Sum:</h1>
+    <div id="validationSummary"></div>
+
+    <script>
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const name = getQueryParameter('name');
+        const familyName = getQueryParameter('familyName');
+        const address = getQueryParameter('address');
+        const city = getQueryParameter('city');
+        const zipCode = getQueryParameter('zipCode');
+        const phone = getQueryParameter('phone');
+        const email = getQueryParameter('email');
+
+        document.getElementById('validationSummary').innerHTML = `
+            <p>Name: ${name}</p>
+            <p>Family Name: ${familyName}</p>
+            <p>Address: ${address}</p>
+            <p>City: ${city}</p>
+            <p>Zip Code: ${zipCode}</p>
+            <p>Phone: ${phone}</p>
+            <p>Email: ${email}</p>
+        `;
+    </script>
 </body>
 </html>

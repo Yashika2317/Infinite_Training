@@ -13,6 +13,7 @@
             <asp:TextBox ID="txtname" runat="server" BackColor="LightPink" ></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
                 ControlToValidate="txtname" ErrorMessage="Name Cannot Be Blank" ForeColor="Red" ValidationGroup="regngrp">*</asp:RequiredFieldValidator>
+            </div>
             <br />
             <br />
             Family Name:&nbsp;&nbsp;
@@ -24,6 +25,8 @@
                 ControlToValidate="txtFamilyName" ControlToCompare="txtname"
                 ErrorMessage="Name and Family Name cannot be the same" ForeColor="Red"
                 ValidationGroup="regngrp" Operator="NotEqual">*</asp:CompareValidator>
+             <span>Differs from name</span>
+
             <br />
             <br />
             Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -34,6 +37,8 @@
             <asp:RegularExpressionValidator ID="RegularExpressionValidatorAddress" runat="server"
                 ControlToValidate="txtAddress" ErrorMessage="Address should have at least 2 letters"
                 ForeColor="Red" ValidationExpression="^.{2,}$" ValidationGroup="regngrp">*</asp:RegularExpressionValidator>
+            <span>atleast 2 characters</span>
+
             <br />
             <br />
             City:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -44,6 +49,7 @@
             <asp:RegularExpressionValidator ID="RegularExpressionValidatorCity" runat="server"
                 ControlToValidate="txtCity" ErrorMessage="City should have at least 2 letters"
                 ForeColor="Red" ValidationExpression="^.{2,}$" ValidationGroup="regngrp">*</asp:RegularExpressionValidator>
+            <span>atleast 2 characters</span>
             <br />
             <br />
             Zip Code:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -54,6 +60,7 @@
             <asp:RegularExpressionValidator ID="RegularExpressionValidatorZipCode" runat="server"
                 ControlToValidate="txtZipCode" ErrorMessage="Zip Code must be 5 digits"
                 ForeColor="Red" ValidationExpression="\d{5}" ValidationGroup="regngrp">*</asp:RegularExpressionValidator>
+            <span>(*****)</span>
             <br />
             <br />
             Phone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -64,7 +71,7 @@
             <asp:RegularExpressionValidator ID="RegularExpressionValidatorPhone" runat="server"
                 ControlToValidate="txtPhone" ErrorMessage="Phone must be in the format XX-XXXXXXX or XXX-XXXXXXX"
                 ForeColor="Red" ValidationExpression="^(\d{2}-\d{8}|\d{3}-\d{7})" ValidationGroup="regngrp">*</asp:RegularExpressionValidator>
-
+            <span>(**-********)or(***-*******)</span>
             <br />
             <br />
             Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -76,6 +83,7 @@
                 ControlToValidate="txtemail" ErrorMessage="Invalid Email Format"
                 ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
                 ValidationGroup="regngrp">*</asp:RegularExpressionValidator>
+            <span>example@example.com</span>
             <br />
             <br />
             <asp:Button ID="btnvalidate" runat="server" Text="Validate" OnClick="btnvalidate_Click" ValidationGroup="regngrp" />
@@ -83,6 +91,8 @@
             <br />
             <h4 style="color:red">Validation Sum </h4>
             <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" ValidationGroup="regngrp" />
+            <br />
+            <asp:Label ID="Label1" runat="server" ForeColor="Green" Visible="false"></asp:Label>
             <br />
             <asp:Label ID="lblSuccess" runat="server" ForeColor="Green" Visible="false"></asp:Label>
         </div>

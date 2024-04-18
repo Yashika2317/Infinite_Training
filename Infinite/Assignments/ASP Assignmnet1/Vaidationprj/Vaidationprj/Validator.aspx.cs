@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.Web.UI.WebControls;
 
 namespace YourNamespace
@@ -15,7 +14,17 @@ namespace YourNamespace
         {
             if (Page.IsValid)
             {
-                Response.Redirect("Welcome.html");
+                string name = txtname.Text;
+                string familyName = txtFamilyName.Text;
+                string address = txtAddress.Text;
+                string city = txtCity.Text;
+                string zipCode = txtZipCode.Text;
+                string phone = txtPhone.Text;
+                string email = txtemail.Text;
+
+                string queryString = $"?name={name}&familyName={familyName}&address={address}&city={city}&zipCode={zipCode}&phone={phone}&email={email}";
+
+                Response.Redirect("Welcome.html" + queryString);
                 lblSuccess.Visible = true;
             }
             else
@@ -23,8 +32,6 @@ namespace YourNamespace
                 lblSuccess.Visible = false;
             }
         }
-
-       
-
+    
     }
 }
