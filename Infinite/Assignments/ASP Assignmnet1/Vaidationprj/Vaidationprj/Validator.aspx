@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Registration Form</title>
+    <title>Validation Form</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -81,6 +81,7 @@
             <asp:Button ID="btnvalidate" runat="server" Text="Validate" OnClick="btnvalidate_Click" ValidationGroup="regngrp" />
             <br />
             <br />
+            <h4 style="color:red">Validation Sum </h4>
             <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" ValidationGroup="regngrp" />
             <br />
             <asp:Label ID="lblSuccess" runat="server" ForeColor="Green" Visible="false"></asp:Label>
