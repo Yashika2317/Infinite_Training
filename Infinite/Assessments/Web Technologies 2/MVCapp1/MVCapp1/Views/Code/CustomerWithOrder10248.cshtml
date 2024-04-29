@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "CustomerWithOrder10248";
+}
+
+<h2>CustomerWithOrder10248</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>German Customers</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 12px;
+        }
+
+        th {
+            background-color: #2196F3;
+            color: white;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; color: #2196F3;">German Customers</h1>
+    <table>
+        <tr>
+            <th>Customer ID</th>
+            <th>Company Name</th>
+        </tr>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.CustomerID</td>
+                <td>@customer.CompanyName</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
+
+
