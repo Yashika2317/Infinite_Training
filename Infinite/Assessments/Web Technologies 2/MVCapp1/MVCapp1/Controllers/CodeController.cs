@@ -8,7 +8,18 @@ namespace MVCapp1.Controllers
 {
     public class CodeController : Controller
     {
-        // GET: Code
+        private NorthwindEntities1 db; 
+
+     
+        public CodeController()
+        {
+            db = new NorthwindEntities1();
+        }
+
+        public ActionResult Index()
+        {
+            return View();
+        }
         public ActionResult GermanyCustomers()
         {
             var germanyCustomers = db.Customers.Where(c => c.Country == "Germany").ToList();
